@@ -1,0 +1,249 @@
+{% extends 'mainsite/base.html' %}
+{% load static %}
+{% block content %}
+  <section class="hero" id="hero">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2 text-center inner">
+        <h1 class="animated fadeInDown">ATASHI <span>SAINI</span></h1>
+        <p class="animated fadeInUp delay-05s">Graphic Designer | Freelancer | Artist</p>
+        <p class="animated fadeInDown delay-1s"><a href="{% static 'mainsite/assets/resume.pdf' %}">Resume</a> | <a href="https://www.behance.net/AtashiSaini96">Behance</a> | <a href="https://www.fiverr.com/atashi_96">Fiverr</a></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center">
+        <a href="#portfolio" class="learn-more-btn">View Work</a>
+      </div>
+    </div>
+    </div>
+  </section>
+  <!-- </header> -->
+  <section class="intro text-center section-padding" id="intro">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2 wp1">
+          <h1 class="arrow">About Me</h1>
+          <p>Hello! I'm Atashi Saini. A fine arts graduate, hoping to serve you best with a professional  output. Feel free to <a href="#contact">Contact Me</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="features text-center section-padding" id="features">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="arrow">Love what you do, and you'll do it well</h1>
+          <div class="features-wrapper">
+            <div class="col-md-4 wp2">
+              <div class="imgg">
+                <img src="{% static 'mainsite/img/logo-01.png' %}"></img>
+              </div>
+              <h2>Logos</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum
+              primis in faucibus.</p>
+            </div>
+            <div class="col-md-4 wp2 delay-05s">
+              <div class="imgg">
+                <img src="{% static 'mainsite/img/portfolio-01.jpg' %}" width="350px" height="200px"></img>
+              </div>
+              <h2>Labels</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum
+              primis in faucibus.</p>
+            </div>
+            <div class="col-md-4 wp2 delay-1s">
+              <div class="imgg">
+                <img src="{% static 'mainsite/img/illustration-01.jpg' %}" width="200px" height="200px"></img>
+              </div>
+              <h2>Custom Illustrations</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum
+              primis in faucibus.</p>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="text-center" id="responsive">
+    <div class="container-fluid nopadding responsive-services">
+      <div class="wrapper">
+        <div class="iphone">
+          <div class="wp3"></div>
+        </div>
+        <div class="fluid-white"></div>
+      </div>
+      <div class="container designs">
+        <div class="row">
+          <div class="col-md-5 col-md-offset-7">
+            <div id="servicesSlider">
+              <ul class="slides">
+                <li>
+                  <h1 class="arrow">Responsive Design Specialists</h1>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero. </p>
+                  <p>
+                  Mauris ultrices odio vitae nulla ultrices iaculis. Nulla rhoncus odio eu lectus faucibus facilisis. Maecenas ornare augue vitae sollicitudin accumsan. </p>
+                  <p>Etiam eget libero et erat eleifend consectetur a nec lectus. Sed id tellus lorem. Suspendisse sed venenatis odio, quis lobortis eros.</p>
+                </li>
+                <li>
+                  <h1 class="arrow">Bootstrap Professionals</h1>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero. </p>
+                  <p>
+                  Mauris ultrices odio vitae nulla ultrices iaculis. Nulla rhoncus odio eu lectus faucibus facilisis. Maecenas ornare augue vitae sollicitudin accumsan. </p>
+                  <p>Etiam eget libero et erat eleifend consectetur a nec lectus. Sed id tellus lorem. Suspendisse sed venenatis odio, quis lobortis eros.</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="swag text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h1>I got 99 Problems<span>but <em>design</em> 'aint one</span></h1>
+          <a href="#portfolio" class="down-arrow-btn"><i class="fa fa-chevron-down"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="portfolio text-center section-padding" id="portfolio">
+    <div class="container">
+      <div class="row">
+        <div id="portfolioSlider">
+          <ul class="slides">
+            <li>
+              <div class="col-md-4 wp4">
+                <div class="overlay-effect effects clearfix">
+                  <div class="img">
+                    <img src="{% static 'mainsite/img/portfolio-01.jpg' %}" alt="Portfolio Item">
+                    <div class="overlay">
+                      <a href="#" class="expand"><i class="fa fa-search"></i><br>View More</a>
+                      <a class="close-overlay hidden">x</a>
+                    </div>
+                  </div>
+                </div>
+                <h2>Creative Minds</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+              </div>
+              <div class="col-md-4 wp4 delay-05s">
+                <div class="overlay-effect effects clearfix">
+                  <div class="img">
+                    <img src="{% static 'mainsite/img/portfolio-02.jpg' %}" alt="Portfolio Item">
+                    <div class="overlay">
+                      <a href="#" class="expand"><i class="fa fa-search"></i><br>View More</a>
+                      <a class="close-overlay hidden">x</a>
+                    </div>
+                  </div>
+                </div>
+                <h2>Creative Hearts</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+              </div>
+              <div class="col-md-4 wp4 delay-1s">
+                <div class="overlay-effect effects clearfix">
+                  <div class="img">
+                    <img src="{% static 'mainsite/img/portfolio-03.jpg' %}" alt="Portfolio Item">
+                    <div class="overlay">
+                      <a href="#" class="expand"><i class="fa fa-search"></i><br>View More</a>
+                      <a class="close-overlay hidden">x</a>
+                    </div>
+                  </div>
+                </div>
+                <h2>Creative Ideas</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+              </div>
+            </li>
+            <li>
+              <div class="col-md-4 wp4">
+                <div class="overlay-effect effects clearfix">
+                  <div class="img">
+                    <img src="{% static 'mainsite/img/portfolio-04.jpg' %}" alt="Portfolio Item">
+                    <div class="overlay">
+                      <a href="#" class="expand"><i class="fa fa-search"></i><br>View More</a>
+                      <a class="close-overlay hidden">x</a>
+                    </div>
+                  </div>
+                </div>
+                <h2>Creative Minds</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+              </div>
+              <div class="col-md-4 wp4 delay-05s">
+                <div class="overlay-effect effects clearfix">
+                  <div class="img">
+                    <img src="{% static 'mainsite/img/portfolio-05.jpg' %}" alt="Portfolio Item">
+                    <div class="overlay">
+                      <a href="#" class="expand"><i class="fa fa-search"></i><br>View More</a>
+                      <a class="close-overlay hidden">x</a>
+                    </div>
+                  </div>
+                </div>
+                <h2>Creative Hearts</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+              </div>
+              <div class="col-md-4 wp4 delay-1s">
+                <div class="overlay-effect effects clearfix">
+                  <div class="img">
+                    <img src="{% static 'mainsite/img/portfolio-06.jpg' %}" alt="Portfolio Item">
+                    <div class="overlay">
+                      <a href="#" class="expand"><i class="fa fa-search"></i><br>View More</a>
+                      <a class="close-overlay hidden">x</a>
+                    </div>
+                  </div>
+                </div>
+                <h2>Creative Ideas</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="subscribe text-center">
+    <div class="container">
+      <h1><i class="fa fa-paper-plane"></i></h1>
+        <a href="{% url 'new-order' %}" class="learn-more-btn">Place an Order</a>
+    </div>
+  </section>
+  <section class="dark-bg text-center section-padding contact-wrap" id="contact">
+    <a href="#top" class="up-btn"><i class="fa fa-chevron-up"></i></a>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="arrow">Get in Touch</h1>
+        </div>
+      </div>
+      <div class="row contact-details">
+        <div class="col-md-4">
+          <div class="light-box box-hover">
+            <h2><i class="fa fa-map-marker"></i><span>Address</span></h2>
+            <p>Level 6, 23 Pitt St, Sydney</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="light-box box-hover">
+            <h2><i class="fa fa-mobile"></i><span>Phone</span></h2>
+            <p>+91 9999496618</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="light-box box-hover">
+            <h2><i class="fa fa-paper-plane"></i><span>Email</span></h2>
+            <p><a href="#">ash300196@gmail.com</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="social-buttons">
+            <li><a href="https://www.facebook.com/Atashi-Saini-Art-Blog-551108861663577/" class="social-btn"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="mailto:ash300196@gmail.com?subject=Lets%20Work%20Together" class="social-btn"><i class="fa fa-envelope"></i></a></li>
+            <li><a href="https://www.instagram.com/atashii.s/" class="social-btn"><i class="fa fa-instagram"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock content %}
+

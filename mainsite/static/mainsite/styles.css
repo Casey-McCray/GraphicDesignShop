@@ -1,0 +1,263 @@
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+body {
+    font-family: 'Quicksand', 'Montserrat', sans-serif;
+    font-size: 25px 
+    line-height: 1.8;
+    color: #f5f6f7;
+    /*height:100%; */
+    min-height:100%;
+    margin:0; 
+}
+
+/*body{ 
+  display:flex; 
+  flex-direction:column; 
+}*/
+
+p {
+    font-size: 20px;
+}
+
+hr.outline {
+    margin: 0;
+    padding: 0;
+    border-width: 1px;
+    border-style: inset;
+    border-color: #404142;
+}
+
+hr {
+    margin-top: 3px;
+    padding: 0;
+    border-style: inset;
+    border-width: 1px;
+}
+ 
+
+footer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 40px;
+}
+
+/*----To keep footer at the bottom----*/
+.pageContentWrapper{
+  padding-bottom: 140px; 
+} 
+
+.img {
+    /*width: 100%;*/
+    position: relative;
+    float: left;
+    width:  400px;
+    height: 400px;
+    background-position: 50% 50%;
+    background-repeat:   no-repeat;
+    background-size:     cover;
+}
+
+
+.margin-top {margin-top: 15px;}
+.margin {margin-bottom: 45px;}
+
+.bg-1 { 
+    background-color: #1abc9c; /* Green */
+    color: #ffffff;
+}
+
+.bg-2 { 
+    background-color: #474e5d; /* Dark Blue */
+    color: #ffffff;
+}
+
+.bg-3 { 
+    background-color: #ffffff; /* White */
+    color: #555555;
+}
+
+.bg-4 { 
+    background-color: #2f2f2f; /* Black Gray */
+    color: #fff;
+}
+
+.container-fluid {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.content {  
+    color: #43464c;
+}
+
+.experience a {
+    color: #9a9fa8;
+}
+
+.experience a:hover {
+    color: #1abc9c;
+}
+
+.heading {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 40px;
+}
+
+.heading-subtle {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 30px;
+}
+
+.glyphicon {
+    margin: 2px;
+}
+
+/*----Navbar----*/
+.navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 16px;
+    letter-spacing: 5px;
+    font-weight: bold;
+}
+
+.navbar-nav  li a:hover {
+    color: #1abc9c !important;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px ##7c8084;
+}
+
+/*----Forms----*/
+.login-form {
+    margin-left: 10px;
+    width: 30%;
+    font-size: 18px;
+}
+
+.order-form, .register-form {
+    margin-left: 10px;
+    width: 40%;
+    font-size: 18px;
+}
+
+/*----Buttons----*/
+.btn-margin {
+    margin: 4px;
+}
+
+.btn-shadow:hover {
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.btn-fill {
+  background-color: #1abc9c; 
+  color: black;
+  font-weight: bold; 
+  border: 2px solid #1abc9c;
+}
+
+.btn-fill:hover {
+  background-color: #1abc9c;
+  color: white;
+}
+
+.btn-hover-fill {
+  background-color: white; 
+  color: black; 
+  font-weight: bold;
+  border: 2px solid #1abc9c;
+}
+
+.btn-hover-fill:hover {
+  background-color: #1abc9c;
+  color: white;
+}
+
+/*input[type=file] {
+  display: none;
+}*/
+
+.new-order {
+    float: right; 
+    margin-right: 5px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.razorpay-payment-button {
+  background-color: #1abc9c; /* Green */
+  border: none;
+  color: black;
+  padding: 10px 16px;
+  text-align: center;
+  font-weight: bold;
+  display: inline-block;
+  font-size: 16px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 4px;
+
+}
+
+.razorpay-payment-button:hover {
+    background-color: #1abc9c;
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+/*----Messages----*/
+.alert {
+    width: 200%;
+}
+
+/*----Media Queries----*/
+@media (max-width: 992px) {
+.img {
+    position: relative;
+    float: left;
+    width:  400px;
+    height: 400px;
+    background-position: 50% 50%;
+    background-repeat:   no-repeat;
+    background-size:     cover;
+    }
+}
+
+@media (max-width: 768px) {
+.img {width: 100%; height: 100%;}
+.form {
+    margin-left: 10px;
+    width: 50%;
+    font-size: 18px;
+}
+.alert {
+    width: 100%;
+}
+}
+
+@media (max-width: 576px) {
+.img {width: 100%; height: 100%;}
+.form {
+    margin-left: 10px;
+    width: 70%;
+    font-size: 18px;
+
+}
+.alert {
+    width: 100%;
+}
+}

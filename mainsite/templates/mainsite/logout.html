@@ -1,0 +1,8 @@
+{% extends 'mainsite/base.html' %}
+{% block content %}
+<div class="container-fluid">
+	<p>You have been logged out.
+	<a href="{% url 'login' %}">Login Again</a>
+	</p>
+</div>
+{% endblock content %}

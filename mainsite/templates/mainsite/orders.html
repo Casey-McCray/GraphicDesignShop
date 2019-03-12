@@ -1,0 +1,193 @@
+{% extends 'mainsite/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid">
+	<a class="navbar-right btn btn-info btn-fill btn-shadow new-order" href="{% url 'new-order' %}">New Order</a>
+	<legend style="width: 90%">Orders Awaiting Confirmation!</legend>
+	{% if pending_orders %}
+		{%for order in pending_orders%}
+			<div>
+				<a class="btn btn-default btn-margin btn-hover-fill" data-toggle="collapse" data-target="#{{order.id}}" onclick="arrow_toggle({{order.id}})"><b>{{order.title}} </b><span class="glyphicon glyphicon-menu-down" id="arrow{{order.id}}"></span></a>
+
+				<div id="{{order.id}}" class="collapse" style="margin-left: 10px">
+				<!-- <p>Title: {{order.title}}</p> -->
+				<p><b>Description:</b> {{order.description}}</p>
+				<p><b>Date Created:</b> {{order.creation_date|date:'M d, Y'}}</p>
+				<p id="deadline{{order.id}}"><b>Deadline:</b> {{order.deadline|date:'M d, Y'}}</p>
+				{% if order.bargain_deadline %}
+					<p id="bargain_deadline{{order.id}}">
+						<b>Bargain Deadline:</b> {{order.bargain_deadline|date:'M d, Y'}}
+						<a class="btn btn-info" href="#" onclick="bargain_deadline_toggle({{order.id}})"><span class="glyphicon glyphicon-ok-circle"> Accept
+						</span></a>
+						<a class="btn btn-danger" href="#"><span class="glyphicon glyphicon-remove-circle"> Decline
+						</span></a>
+					<p>
+				{% endif %}
+				<p id="amount{{order.id}}"><b>Amount:</b>
+					<script type="text/javascript">
+					function get_amount(id) {
+						var request = new XMLHttpRequest();
+						var url = "https://ash-website.herokuapp.com/order/" + id + "/amount-get";
+				        // var url = "http://localhost:8000/order/" + id + "/amount-get";
+				        request.open('GET', url);
+				        request.onload = function() {
+				          var data = JSON.parse(request.responseText);
+				          renderHTML(data, id);
+				        };
+				        request.send();
+				        
+				      	function renderHTML(data, id) {
+				        	var amount = document.getElementById("amount" + id);
+				        	var val = data['amount']/100;
+				        	amount.innerHTML =  'Amount: ' + val;
+				  		}
+					}
+					get_amount({{order.id}});
+					</script></p>
+				{% if order.bargain_amount %}
+					<p id="bargain_amount{{order.id}}">
+						<span id="val{{order.id}}"></span>	
+						<script type="text/javascript">
+							function get_bargain_amount(id) {
+								var request = new XMLHttpRequest();
+								var url = "https://ash-website.herokuapp.com/order/" + id + "/amount-get";
+						        // var url = "http://localhost:8000/order/" + id + "/amount-get";
+						        request.open('GET', url);
+						        request.onload = function() {
+						          var data = JSON.parse(request.responseText);
+						          renderHTML(data, id);
+						        };
+						        request.send();
+						        
+						      	function renderHTML(data, id) {
+						        	var amount = document.getElementById("val" + id);
+						        	var val = data['bargain_amount']/100;
+						        	amount.innerHTML =  'Bargain Amount: ' + val;
+						  		}
+							}
+							get_bargain_amount({{order.id}});
+						</script>
+						<a class="btn btn-info" href="#" onclick="bargain_amount_toggle({{order.id}})"><span class="glyphicon glyphicon-ok-circle"> Accept
+						</span></a>
+						<a class="btn btn-danger" href="#"><span class="glyphicon glyphicon-remove-circle"> Decline
+						</span></a>
+					</p>
+				{% endif %}
+				</div>
+			</div>
+		{% endfor %}
+	{% else %}
+		<div class="text-muted">You have no Awaited Confirmations.</div>	
+	{% endif %}
+</div>
+<div class="container-fluid">
+	<legend>Active Orders!</legend>
+	{% if active_orders %}
+		{%for order in active_orders%}
+			<div style="margin: 4px;">
+				<a class="btn btn-default btn-margin btn-hover-fill" data-toggle="collapse" data-target="#{{order.id}}" onclick="arrow_toggle({{order.id}})"><b>{{order.title}} </b><span class="glyphicon glyphicon-menu-down" id="arrow{{order.id}}"></span></a>
+				<div id="{{order.id}}" class="collapse">
+					<!-- <p>Title: {{order.title}}</p> -->
+					<p><b>Description:</b> {{order.description}}</p>
+					<p><b>Date Created:</b> {{order.creation_date|date:'M d, Y'}}</p>
+					<p><b>Deadline:</b> {{order.deadline|date:'M d, Y'}}</p>
+					
+					{% if not order.paid %}
+					<form action="/purchase/" method="POST">
+						<script src="https://checkout.razorpay.com/v1/checkout.js"
+						    data-key="rzp_test_9M6ZPZiSPKIkTn"
+						    data-amount="{{ order.amount }}"
+						    data-buttontext="Pay Now"
+						    data-name="Atashi Saini"
+						    data-description="{{order.description}}"
+						    data-image="{% static 'mainsite/img/atashi.jpg' %}"
+						    data-prefill.name="Gaurav Kumar"
+						    data-prefill.email="test@test.com"
+						    data-theme.color="#F37254">	
+						</script>
+						<input type="hidden" value="{{ order.amount }}" name="amount">
+						<input type="hidden" value="{{ order.id }}" name="id">
+						{% csrf_token %}
+					</form>
+					{% endif %}
+				</div>
+			</div>
+		{% endfor %}
+	{% else %}
+		<div class="text-muted">You have no Active Orders.</div>	
+	{% endif %}
+</div>
+<div class="container-fluid">
+	<legend>Past Orders!</legend>
+	{% if completed_orders %}
+		{%for order in completed_orders%}
+			<div style="margin: 4px;">
+				<a class="btn btn-default btn-margin btn-hover-fill" data-toggle="collapse" data-target="#{{order.id}}" onclick="arrow_toggle({{order.id}})"><b>{{order.title}} </b><span class="glyphicon glyphicon-menu-down" id="arrow{{order.id}}"></span></a>
+				<div id="{{order.id}}" class="collapse">
+				<!-- <p>Title: {{order.title}}</p> -->
+				<p><b>Description:</b> {{order.description}}</p>
+				<p><b>Date Created:</b> {{order.creation_date|date:'M d, Y'}}</p>
+				<p><b>Deadline:</b> {{order.deadline|date:'M d, Y'}}</p>
+				</div>
+			</div>
+		{% endfor %}
+	{% else %}
+		<div class="text-muted">You have no Past Orders.</div>	
+	{% endif %}
+</div>
+
+<script type="text/javascript">
+
+	function arrow_toggle(id) {
+		a = document.getElementById('arrow' + id);
+		if (a.classList.contains('glyphicon-menu-down')) {
+			a.classList.add('glyphicon-menu-up');
+			a.classList.remove('glyphicon-menu-down');
+		}
+		else {
+			a.classList.add('glyphicon-menu-down');
+			a.classList.remove('glyphicon-menu-up');
+		}
+	}
+
+	function bargain_amount_toggle(id) {
+		a = document.getElementById('bargain_amount' + id);
+		a.classList.add('hidden');
+		var request = new XMLHttpRequest();
+		var url = "https://ash-website.herokuapp.com/order/" + id + "/amount";
+        // var url = "http://localhost:8000/order/" + id + "/amount";
+        request.open('GET', url);
+        request.onload = function() {
+          var data = JSON.parse(request.responseText);
+          renderHTML(data, id);
+        };
+        request.send();
+        
+      	function renderHTML(data, id) {
+        	var amount = document.getElementById("amount" + id);
+        	var val = data['amount']/100;
+        	amount.innerHTML =  'Amount: ' + val;
+      	}
+	}
+
+	function bargain_deadline_toggle(id) {
+		a = document.getElementById('bargain_deadline' + id);
+		a.classList.add('hidden');
+		var request = new XMLHttpRequest();
+		var url = "https://ash-website.herokuapp.com/order/" + id + "/deadline";
+        // var url = "http://localhost:8000/order/" + id + "/deadline";
+        request.open('GET', url);
+        request.onload = function() {
+          var data = JSON.parse(request.responseText);
+          renderHTML(data, id);
+        };
+        request.send();
+        
+      	function renderHTML(data, id) {
+        	var deadline = document.getElementById("deadline" + id);
+        	deadline.innerHTML =  'Deadline: ' + data['deadline'];
+      	}
+	}
+</script>
+{% endblock content %}

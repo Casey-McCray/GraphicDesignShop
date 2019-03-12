@@ -1,0 +1,4 @@
+a.py
+conf.py
+*.sqlite3
+*.log
